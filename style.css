@@ -4,7 +4,15 @@
   --bg-color: #0d1117;
   --text-color: #e6edf3;
   --accent-color: #58a6ff;
+  --accent-hover: #79b8ff;
   --card-bg: #161b22;
+  --border-radius: 12px;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
 }
 
 body {
@@ -14,53 +22,73 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
 header {
   background: var(--card-bg);
-  padding: 60px 20px;
-  text-align: center;
+  padding: 30px 20px;
   border-bottom: 2px solid var(--accent-color);
+  text-align: center;
 }
 
 header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2.8rem;
+  margin: 0 0 10px;
   color: var(--accent-color);
+  letter-spacing: 0.5px;
 }
 
 header p {
   max-width: 800px;
-  margin: 10px auto;
+  margin: 0 auto;
   font-size: 1.1rem;
+  color: #c9d1d9;
 }
 
 .container {
   max-width: 900px;
-  margin: auto;
-  padding: 20px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
 section {
   background: var(--card-bg);
-  padding: 20px 25px;
-  margin-bottom: 25px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(88, 166, 255, 0.1);
+}
+
+section:hover {
+  border-color: var(--accent-hover);
+  transform: translateY(-2px);
 }
 
 h2 {
   color: var(--accent-color);
-  margin-bottom: 15px;
+  font-size: 1.6rem;
+  margin-bottom: 18px;
 }
 
 ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
 }
 
 ul li {
   margin-bottom: 12px;
+  padding-left: 1rem;
+  position: relative;
+}
+
+ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
 }
 
 a {
@@ -70,14 +98,39 @@ a {
 }
 
 a:hover {
+  color: var(--accent-hover);
   text-decoration: underline;
 }
 
 footer {
   text-align: center;
   background: var(--card-bg);
-  color: #aaa;
-  padding: 15px;
-  margin-top: 30px;
+  color: #8b949e;
+  padding: 20px;
+  margin-top: 40px;
   font-size: 0.9rem;
+  border-top: 1px solid rgba(88, 166, 255, 0.1);
+}
+
+img {
+  border-radius: 50%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
 }
